@@ -153,7 +153,6 @@ tools/webhook_mock/        # тестовый получатель webhook
 tests/unit                 # use cases и сущности на in-memory fakes
 tests/e2e                  # сквозные тесты против docker compose
 Makefile                   # частые команды (make help)
-.vscode/settings.json      # интерпретатор .venv и его активация в терминале VS Code
 ```
 
 Зависимости направлены внутрь: `api`, `workers` → `domain` ← `infrastructure`. Use cases зависят только от абстракций (`UnitOfWork`, `PaymentRepository`, `PaymentGateway`, …), реализации подставляет `di/container.py`. Поэтому use cases покрыты unit-тестами на in-memory fake-реализациях, без БД и брокера.
